@@ -22,7 +22,7 @@
     "recharts": "^2.15.0"
   },
   "lifeforge": {
-    "icon": "tabler:wind",
+    "icon": "mdi:home-assistant",
     "category": "Smart Home",
     "APIKeyAccess": {
       "home-assistant": {
