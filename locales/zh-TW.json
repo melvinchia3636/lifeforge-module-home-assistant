@@ -1,0 +1,91 @@
+{
+  "title": "Home Assistant",
+  "description": "透過 Home Assistant 監控和控制你的米家空氣淨化器。",
+  "buttons": {
+    "configure": "設定",
+    "testConnection": "測試連線",
+    "save": "儲存"
+  },
+  "inputs": {
+    "baseUrl": "Home Assistant 網址"
+  },
+  "modals": {
+    "configure": "連接 Home Assistant"
+  },
+  "messages": {
+    "testSuccess": "已連接到 {{name}}（{{version}}）。",
+    "testFailed": "無法連接到 Home Assistant。"
+  },
+  "noConnection": {
+    "title": "尚未設定 Home Assistant",
+    "description": "新增 Home Assistant 實例網址以開始監控淨化器。本機開發使用 http://localhost:8123，LifeForge 在 Docker 中執行時使用 http://host.docker.internal:8123，或使用 Mac 的區域網路 IP."
+  },
+  "stats": {
+    "pm25": "PM2.5",
+    "pm1": "PM1",
+    "pm10": "灰塵",
+    "airQuality": "空氣品質",
+    "temperature": "溫度",
+    "humidity": "濕度",
+    "filterLife": "濾芯壽命",
+    "fanSpeed": "風速",
+    "fault": "故障",
+    "motorRpm": "馬達轉速",
+    "lastUpdated": "最後更新"
+  },
+  "controls": {
+    "title": "控制",
+    "power": "電源",
+    "mode": "模式",
+    "fanSpeed": "風速",
+    "uv": "UV 殺菌",
+    "anion": "負離子",
+    "display": "顯示螢幕",
+    "brightness": "亮度",
+    "childLock": "童鎖",
+    "buzzer": "提示音",
+    "fanLevel": "風速檔位",
+    "manualFanLevel": "手動風速檔位",
+    "levelSettings": "檔位設定"
+  },
+  "status": {
+    "title": "裝置狀態",
+    "description": "數值每 10 秒更新一次。",
+    "noFault": "無故障",
+    "unknown": "未知",
+    "loading": "載入中..."
+  },
+  "chart": {
+    "title": "懸浮粒子歷史",
+    "pm1": "PM1",
+    "pm25": "PM2.5",
+    "pm10": "PM10",
+    "range6h": "過去 6 小時",
+    "range24h": "過去 24 小時",
+    "range7d": "過去 7 天",
+    "empty": "暫無歷史資料。"
+  },
+  "airQuality": {
+    "title": "室內空氣品質",
+    "excellent": "極佳",
+    "good": "良好",
+    "moderate": "中等",
+    "unhealthy": "不健康",
+    "hazardous": "危險",
+    "unknown": "未知"
+  },
+  "power": {
+    "on": "開啟",
+    "off": "關閉"
+  },
+  "widgets": {
+    "homeAssistantPurifier": {
+      "title": "空氣淨化器",
+      "description": "顯示淨化器 PM2.5 水平和電源狀態。",
+      "empty": {
+        "title": "尚未設定",
+        "description": "開啟 Home Assistant 連接你的淨化器。"
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "title": "Home Assistant",
+  "description": "Pantau dan kawal penulen udara Mijia anda melalui Home Assistant.",
+  "buttons": {
+    "configure": "Konfigur",
+    "testConnection": "Uji sambungan",
+    "save": "Simpan"
+  },
+  "inputs": {
+    "baseUrl": "URL Home Assistant"
+  },
+  "modals": {
+    "configure": "Sambung Home Assistant"
+  },
+  "messages": {
+    "testSuccess": "Disambungkan ke {{name}} ({{version}}).",
+    "testFailed": "Tidak dapat menyambung ke Home Assistant."
+  },
+  "noConnection": {
+    "title": "Home Assistant belum dikonfigurasi",
+    "description": "Masukkan URL instans Home Assistant anda untuk mula memantau penulen. Gunakan http://localhost:8123 untuk pembangunan setempat, http://host.docker.internal:8123 apabila LifeForge berjalan dalam Docker, atau IP LAN Mac."
+  },
+  "stats": {
+    "pm25": "PM2.5",
+    "pm1": "PM1",
+    "pm10": "Debu",
+    "airQuality": "Kualiti udara",
+    "temperature": "Suhu",
+    "humidity": "Kelembapan",
+    "filterLife": "Hayat penapis",
+    "fanSpeed": "Kelajuan kipas",
+    "fault": "Kerosakan",
+    "motorRpm": "RPM motor",
+    "lastUpdated": "Kemas kini terakhir"
+  },
+  "controls": {
+    "title": "Kawalan",
+    "power": "Kuasa",
+    "mode": "Mod",
+    "fanSpeed": "Kelajuan kipas",
+    "uv": "Pensterilan UV",
+    "anion": "Ion negatif",
+    "display": "Paparan",
+    "brightness": "Kecerahan",
+    "childLock": "Kunci kanak-kanak",
+    "buzzer": "Buzzer",
+    "fanLevel": "Tahap kipas",
+    "manualFanLevel": "Tahap kipas manual",
+    "levelSettings": "Tetapan tahap"
+  },
+  "status": {
+    "title": "Status peranti",
+    "description": "Nilai dikemas kini setiap 10 saat.",
+    "noFault": "Tiada kerosakan",
+    "unknown": "Tidak diketahui",
+    "loading": "Memuatkan..."
+  },
+  "chart": {
+    "title": "Sejarah partikulat",
+    "pm1": "PM1",
+    "pm25": "PM2.5",
+    "pm10": "PM10",
+    "range6h": "6 jam lepas",
+    "range24h": "24 jam lepas",
+    "range7d": "7 hari lepas",
+    "empty": "Tiada data sejarah lagi."
+  },
+  "airQuality": {
+    "title": "Kualiti Udara Dalaman",
+    "excellent": "Cemerlang",
+    "good": "Baik",
+    "moderate": "Sederhana",
+    "unhealthy": "Tidak sihat",
+    "hazardous": "Berbahaya",
+    "unknown": "Tidak diketahui"
+  },
+  "power": {
+    "on": "Hidup",
+    "off": "Mati"
+  },
+  "widgets": {
+    "homeAssistantPurifier": {
+      "title": "Penulen Udara",
+      "description": "Paparkan tahap PM2.5 dan status kuasa penulen.",
+      "empty": {
+        "title": "Belum dikonfigurasi",
+        "description": "Buka Home Assistant untuk menyambung penulen anda."
+      }
+    }
+  }
+}

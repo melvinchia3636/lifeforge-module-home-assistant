@@ -1,0 +1,91 @@
+{
+  "title": "Home Assistant",
+  "description": "Monitor and control your Mijia air purifier through Home Assistant.",
+  "buttons": {
+    "configure": "Configure",
+    "testConnection": "Test connection",
+    "save": "Save"
+  },
+  "inputs": {
+    "baseUrl": "Home Assistant URL"
+  },
+  "modals": {
+    "configure": "Connect Home Assistant"
+  },
+  "messages": {
+    "testSuccess": "Connected to {{name}} ({{version}}).",
+    "testFailed": "Could not connect to Home Assistant."
+  },
+  "noConnection": {
+    "title": "Home Assistant not configured",
+    "description": "Add the URL of your Home Assistant instance to start monitoring the purifier. Use http://localhost:8123 for local development, http://host.docker.internal:8123 when LifeForge runs in Docker, or the Mac's LAN IP."
+  },
+  "stats": {
+    "pm25": "PM2.5",
+    "pm1": "PM1",
+    "pm10": "Dust",
+    "airQuality": "Air quality",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "filterLife": "Filter life",
+    "fanSpeed": "Fan speed",
+    "fault": "Fault",
+    "motorRpm": "Motor RPM",
+    "lastUpdated": "Last updated"
+  },
+  "controls": {
+    "title": "Controls",
+    "power": "Power",
+    "mode": "Mode",
+    "fanSpeed": "Fan speed",
+    "uv": "UV sterilisation",
+    "anion": "Negative ions",
+    "display": "Display",
+    "brightness": "Brightness",
+    "childLock": "Child lock",
+    "buzzer": "Buzzer",
+    "fanLevel": "Fan level",
+    "manualFanLevel": "Manual fan level",
+    "levelSettings": "Level settings"
+  },
+  "status": {
+    "title": "Device status",
+    "description": "Values update every 10 seconds.",
+    "noFault": "No fault",
+    "unknown": "Unknown",
+    "loading": "Loading..."
+  },
+  "chart": {
+    "title": "Particulate history",
+    "pm1": "PM1",
+    "pm25": "PM2.5",
+    "pm10": "PM10",
+    "range6h": "Last 6 hours",
+    "range24h": "Last 24 hours",
+    "range7d": "Last 7 days",
+    "empty": "No history data yet."
+  },
+  "airQuality": {
+    "title": "Indoor Air Quality",
+    "excellent": "Excellent",
+    "good": "Good",
+    "moderate": "Moderate",
+    "unhealthy": "Unhealthy",
+    "hazardous": "Hazardous",
+    "unknown": "Unknown"
+  },
+  "power": {
+    "on": "On",
+    "off": "Off"
+  },
+  "widgets": {
+    "homeAssistantPurifier": {
+      "title": "Air Purifier",
+      "description": "Show the purifier PM2.5 level and power state.",
+      "empty": {
+        "title": "Not configured",
+        "description": "Open Home Assistant to connect your purifier."
+      }
+    }
+  }
+}

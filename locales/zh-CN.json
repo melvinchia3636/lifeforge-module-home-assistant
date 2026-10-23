@@ -1,0 +1,91 @@
+{
+  "title": "Home Assistant",
+  "description": "通过 Home Assistant 监控和控制你的米家空气净化器。",
+  "buttons": {
+    "configure": "配置",
+    "testConnection": "测试连接",
+    "save": "保存"
+  },
+  "inputs": {
+    "baseUrl": "Home Assistant 地址"
+  },
+  "modals": {
+    "configure": "连接 Home Assistant"
+  },
+  "messages": {
+    "testSuccess": "已连接到 {{name}}（{{version}}）。",
+    "testFailed": "无法连接到 Home Assistant。"
+  },
+  "noConnection": {
+    "title": "尚未配置 Home Assistant",
+    "description": "添加 Home Assistant 实例地址以开始监控净化器。本地开发使用 http://localhost:8123，LifeForge 在 Docker 中运行时使用 http://host.docker.internal:8123，或使用 Mac 的局域网 IP。"
+  },
+  "stats": {
+    "pm25": "PM2.5",
+    "pm1": "PM1",
+    "pm10": "灰尘",
+    "airQuality": "空气质量",
+    "temperature": "温度",
+    "humidity": "湿度",
+    "filterLife": "滤芯寿命",
+    "fanSpeed": "风速",
+    "fault": "故障",
+    "motorRpm": "电机转速",
+    "lastUpdated": "最后更新"
+  },
+  "controls": {
+    "title": "控制",
+    "power": "电源",
+    "mode": "模式",
+    "fanSpeed": "风速",
+    "uv": "UV 杀菌",
+    "anion": "负离子",
+    "display": "显示屏",
+    "brightness": "亮度",
+    "childLock": "童锁",
+    "buzzer": "提示音",
+    "fanLevel": "风速档位",
+    "manualFanLevel": "手动风速档位",
+    "levelSettings": "档位设置"
+  },
+  "status": {
+    "title": "设备状态",
+    "description": "数值每 10 秒更新一次。",
+    "noFault": "无故障",
+    "unknown": "未知",
+    "loading": "加载中..."
+  },
+  "chart": {
+    "title": "颗粒物历史",
+    "pm1": "PM1",
+    "pm25": "PM2.5",
+    "pm10": "PM10",
+    "range6h": "过去 6 小时",
+    "range24h": "过去 24 小时",
+    "range7d": "过去 7 天",
+    "empty": "暂无历史数据。"
+  },
+  "airQuality": {
+    "title": "室内空气质量",
+    "excellent": "极佳",
+    "good": "良好",
+    "moderate": "中等",
+    "unhealthy": "不健康",
+    "hazardous": "危险",
+    "unknown": "未知"
+  },
+  "power": {
+    "on": "开启",
+    "off": "关闭"
+  },
+  "widgets": {
+    "homeAssistantPurifier": {
+      "title": "空气净化器",
+      "description": "显示净化器 PM2.5 水平和电源状态。",
+      "empty": {
+        "title": "尚未配置",
+        "description": "打开 Home Assistant 连接你的净化器。"
+      }
+    }
+  }
+}

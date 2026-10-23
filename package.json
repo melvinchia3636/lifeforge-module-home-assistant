@@ -1,0 +1,43 @@
+{
+  "name": "@lifeforge/melvinchia3636--home-assistant",
+  "displayName": "Home Assistant",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/melvinchia3636/lifeforge-module-home-assistant.git"
+  },
+  "version": "0.0.1",
+  "type": "module",
+  "author": "Melvin Chia <melvinchia623600@gmail.com>",
+  "description": "Monitor and control the Mijia air purifier through Home Assistant.",
+  "scripts": {
+    "typecheck": "pnpm run typecheck:client && pnpm run typecheck:server",
+    "typecheck:client": "cd client && tsc",
+    "typecheck:server": "cd server && tsc",
+    "build": "pnpm run build:client && pnpm run build:server",
+    "build:client": "cd client && vite build",
+    "build:server": "cd server && vite build"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.19",
+    "recharts": "^2.15.0"
+  },
+  "lifeforge": {
+    "icon": "tabler:wind",
+    "category": "Smart Home",
+    "APIKeyAccess": {
+      "home-assistant": {
+        "usage": "Long-lived access token for the Home Assistant REST API.",
+        "required": true
+      }
+    }
+  },
+  "peerDependencies": {
+    "@lifeforge/api": "workspace:*",
+    "@lifeforge/configs": "workspace:*",
+    "@lifeforge/drizzle": "workspace:*",
+    "@lifeforge/federation": "workspace:*",
+    "@lifeforge/localization": "workspace:*",
+    "@lifeforge/server-utils": "workspace:*",
+    "@lifeforge/ui": "workspace:*"
+  }
+}
