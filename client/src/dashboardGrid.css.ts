@@ -15,11 +15,11 @@ export const dashboardGrid = style({
   '@media': {
     'screen and (min-width: 1280px)': {
       gridTemplateColumns: '2fr 1fr',
-      gridTemplateRows: 'auto auto 1fr',
+      gridTemplateRows: 'auto auto auto',
       gridTemplateAreas: `
-        "airQuality history"
         "airQuality controls"
         "airQuality status"
+        "history history"
       `
     }
   }
