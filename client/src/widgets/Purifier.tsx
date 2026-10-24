@@ -1,22 +1,20 @@
 import { Link, useNavigate } from 'react-router'
 
-import { useQuery } from '@tanstack/react-query'
-
-import { useForgeMutation } from '@lifeforge/api'
 import type { WidgetConfig } from '@lifeforge/configs'
 import { useModuleTranslation } from '@lifeforge/localization'
 import {
   Button,
   EmptyStateScreen,
   Flex,
-  Stack,
-  Switch,
-  Text,
-  Widget
+  Scrollbar,
+  Widget,
+  WithQueryData
 } from '@lifeforge/ui'
 
 import { forgeAPI } from '@/manifest'
-import { formatNumber } from '@/utils/format'
+import { PurifierProvider } from '@/providers/PurifierProvider'
+import { AirQualityMetricsSection } from '@/sections/AirQualityMetricsSection'
+import { AirQualitySection } from '@/sections/AirQualitySection'
 
 const MODULE_ROUTE = '/melvinchia3636--home-assistant'
 
@@ -44,23 +42,6 @@ function EmptyWidget({ description }: { description: string }) {
 
 function PurifierWidget() {
   const { t } = useModuleTranslation()
-  const settingsQuery = useQuery(forgeAPI.settings.get.queryOptions())
-  
-const configured = Boolean(settingsQuery.data?.settings)
-
-  const statsQuery = useQuery(
-    forgeAPI.stats.get.queryOptions({
-      enabled: configured,
-      refetchInterval: 10_000
-    })
-  )
-
-  const controlMutation = useForgeMutation(forgeAPI.control.call, {
-    action: 'update',
-    queryKey: forgeAPI.stats.key
-  })
-
-  const stats = statsQuery.data
 
   return (
     <Widget
@@ -78,60 +59,30 @@ const configured = Boolean(settingsQuery.data?.settings)
       namespace={false}
       title={t('widgets.homeAssistantPurifier.title')}
     >
-      {!configured ? (
-        <EmptyWidget
-          description={t('widgets.homeAssistantPurifier.empty.description')}
-        />
-      ) : statsQuery.isError ? (
-        <EmptyWidget description={statsQuery.error.message} />
-      ) : stats ? (
-        <Flex direction="column" gap="md" height="100%" justify="between">
-          <Flex align="start" justify="between">
-            <Stack gap="xs">
-              <Text color="muted" size="sm">
-                {t('stats.pm25')}
-              </Text>
-              <Flex align="baseline" gap="xs">
-                <Text size="3xl" weight="semibold">
-                  {formatNumber(stats.pm25)}
-                </Text>
-                <Text color="muted" size="sm">
-                  µg/m³
-                </Text>
-              </Flex>
-            </Stack>
-            <Switch
-              disabled={
-                controlMutation.isPending || stats.power === null
-              }
-              value={stats.power ?? false}
-              onChange={value =>
-                controlMutation.mutate({
-                  action: value ? 'power_on' : 'power_off'
-                })
-              }
+      <WithQueryData contract={forgeAPI.settings.get}>
+        {({ settings }) =>
+          settings ? (
+            <PurifierProvider>
+              <Scrollbar>
+                <Flex
+                  direction="column"
+                  gap="xs"
+                  height="100%"
+                  justify="center"
+                  width="100%"
+                >
+                  <AirQualitySection compact />
+                  <AirQualityMetricsSection compact />
+                </Flex>
+              </Scrollbar>
+            </PurifierProvider>
+          ) : (
+            <EmptyWidget
+              description={t('widgets.homeAssistantPurifier.empty.description')}
             />
-          </Flex>
-          <Flex align="center" gap="sm" justify="between">
-            <Text color="muted" size="sm">
-              {stats.preset_mode ?? t('status.unknown')}
-            </Text>
-            <Text
-              color={stats.power ? 'green-500' : 'muted'}
-              size="sm"
-              weight="medium"
-            >
-              {stats.power ? t('power.on') : t('power.off')}
-            </Text>
-          </Flex>
-        </Flex>
-      ) : (
-        <Flex align="center" height="100%" justify="center">
-          <Text color="muted" size="sm">
-            {t('status.loading')}
-          </Text>
-        </Flex>
-      )}
+          )
+        }
+      </WithQueryData>
     </Widget>
   )
 }
@@ -142,5 +93,5 @@ export const config: WidgetConfig = {
   id: 'homeAssistantPurifier',
   icon: 'tabler:wind',
   minW: 2,
-  minH: 2
+  minH: 3
 }

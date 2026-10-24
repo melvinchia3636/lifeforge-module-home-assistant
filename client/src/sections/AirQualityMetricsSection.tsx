@@ -6,7 +6,11 @@ import { Box, Flex, Text } from '@lifeforge/ui'
 import { usePurifier } from '@/providers/PurifierProvider'
 import { formatNumber } from '@/utils/format'
 
-export function AirQualityMetricsSection() {
+export function AirQualityMetricsSection({
+  compact = false
+}: {
+  compact?: boolean
+}) {
   const { t } = useModuleTranslation()
   const { stats } = usePurifier()
 
@@ -19,8 +23,10 @@ export function AirQualityMetricsSection() {
   return (
     <Flex
       align="center"
+      gap="md"
       justify="center"
-      p="lg"
+      minWidth="0"
+      p={compact ? 'none' : 'lg'}
       position="relative"
       width="100%"
       zIndex="2"
@@ -40,13 +46,25 @@ export function AirQualityMetricsSection() {
                 width="1px"
               />
             )}
-            <Flex align="center" direction="column" flex="1" gap="xs">
-              <Flex align="baseline" gap="xs">
-                <Text size="4xl" weight="semibold">
+            <Flex
+              direction="column"
+              flex="1"
+              gap="xs"
+              minWidth="0"
+              width="100%"
+            >
+              <Flex align="baseline" gap="xs" justify="center">
+                <Text size={compact ? '2xl' : '4xl'} weight="semibold">
                   {formatted === '-' ? formatted : formatted.padStart(3, '0')}
                 </Text>
               </Flex>
-              <Text color="muted" size="base">
+              <Text
+                truncate
+                align="center"
+                as="p"
+                color="muted"
+                size={compact ? 'sm' : 'base'}
+              >
                 {t(`stats.${key}`)} {unit && `(${unit})`}
               </Text>
             </Flex>

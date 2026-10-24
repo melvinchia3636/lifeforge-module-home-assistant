@@ -1,5 +1,5 @@
 import { useModuleTranslation } from '@lifeforge/localization'
-import { OptionsColumn, Switch } from '@lifeforge/ui'
+import { OptionsColumn, Switch, surface } from '@lifeforge/ui'
 
 import { usePurifier } from '@/providers/PurifierProvider'
 
@@ -9,6 +9,7 @@ export function PowerSection() {
 
   return (
     <OptionsColumn
+      bg={surface.light}
       breakpoint={false}
       description={stats.power ? t('power.on') : t('power.off')}
       icon="tabler:power"
