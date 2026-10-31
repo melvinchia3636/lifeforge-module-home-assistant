@@ -122,8 +122,8 @@ export function HistorySection() {
         </Text>
       </Flex>
       <Listbox
-        my="sm"
         minWidth="10em"
+        my="sm"
         value={range}
         onChange={value => setRange(value)}
       >
